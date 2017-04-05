@@ -1,7 +1,6 @@
 var quickSort = function(arr) {
   if (arr.length < 2) return arr;
   var pivot = arr.pop();
-  console.log(pivot);
   var left = [];
   var right = [];
   var len = arr.length;
@@ -15,7 +14,7 @@ var quickSort = function(arr) {
   }
   let below = quickSort(left);
   let above = quickSort(right);
-  return below.concat([pivot], above);
+  return [...below, pivot, ...above];
 };
 
 var nums = [10, 5, 3, 8, 2, 6, 4, 7, 9, 1];
