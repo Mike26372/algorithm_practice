@@ -29,9 +29,10 @@ function reverseWords(str) {
       start++;
     }
 
+    if (start >= len) break;
+
     end = start + 1;
-    while (true) {
-      if (str[end] === ' ' || end >= len) break;
+    while (end < len && str[end] !== ' ') {
       end++;
     }
     str = reverseString(str, start, end - 1);
