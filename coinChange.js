@@ -2,10 +2,10 @@ function coinChange (amount, coins) {
   let solutions = new Array(amount + 1).fill(0);
   solutions[0] = 1;
 
-  for (let coin = 0; coin < coins.length; coin++) {
-    let currentCoin = coins[coin];
-    for (let solution = currentCoin; solution < solutions.length; solution++) {
-      solutions[solution] += solutions[solution - currentCoin]; 
+  for (let coinIndex = 0; coinIndex < coins.length; coinIndex++) {
+    let currentCoin = coins[coinIndex];
+    for (let solutionIndex = currentCoin; solutionIndex < solutions.length; solutionIndex++) {
+      solutions[solutionIndex] += solutions[solutionIndex - currentCoin]; 
     }
   }
 
