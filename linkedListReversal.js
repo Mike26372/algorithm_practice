@@ -41,7 +41,7 @@ function linkedListReversal(head) {
 function linkedListReversalRecursive(head) {
   if (!head.next) return head;
   var next = linkedListReversalRecursive(head.next);
-  head. next.next = head;
+  head.next.next = head;
   head.next = null;
   return next;
 }
