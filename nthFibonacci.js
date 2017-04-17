@@ -1,10 +1,9 @@
 function nthFib(n) {
   if (n === 0) return 0;
   if (n === 1) return 1;
-  let prev = 0
+  let prev = 0;
   let result = 1;
   for (var i = 1; i < n; i++) {
-    if (i === n) return result;
     let temp = prev;
     prev = result;
     result = temp + prev;
@@ -12,4 +11,4 @@ function nthFib(n) {
   return result;
 }
 
-console.log(nthFib(8));
+console.log(nthFib(10));
