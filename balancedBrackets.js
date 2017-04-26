@@ -13,8 +13,10 @@ function balancedBrackets(string) {
     }
 
     if (close[current]) {
-      if (stack[stack.length - 1] === opposite[current]) stack.pop();
-      else return false;
+      if (stack[stack.length - 1] === opposite[current]) 
+        stack.pop();
+      else 
+        return false;
     } 
 
   }
