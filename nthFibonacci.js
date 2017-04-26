@@ -11,4 +11,11 @@ function nthFib(n) {
   return result;
 }
 
+function nthFibRecursive(n) {
+  if (n === 0) return 0;
+  if (n === 1) return 1;
+  return nthFibRecursive(n - 2) + nthFibRecursive(n - 1);
+}
+
 console.log(nthFib(10));
+console.log(nthFibRecursive(10));
