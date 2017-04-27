@@ -17,5 +17,19 @@ function nthFibRecursive(n) {
   return nthFibRecursive(n - 2) + nthFibRecursive(n - 1);
 }
 
+function memoize(func) {
+  var cache = {};
+  return function() {
+    let key = JSON.stringify(arguments);
+    if (!cache.hasOwnProperty(key)) {
+      cache[key] = func.apply(this, arguments);
+    }
+    return cache[key];
+  };
+}
+
+var fibonacciMemoized = memoize(nthFib);
+
 console.log(nthFib(10));
 console.log(nthFibRecursive(10));
+console.log(fibonacciMemoized(10));
