@@ -23,29 +23,45 @@ function printNodes(head) {
 
 printNodes(nodeA);
 
+// function linkedListReversal(head) {
+//   var prev = null;
+//   var current = head;
+//   var next = current.next;
+//   while (current.next) {
+//     console.log(current.value);
+//     current.next = prev;
+//     prev = current;
+//     current = next;
+//     next = current.next;
+//   }
+//   current.next = prev;
+//   return head;
+// }
+
+// function linkedListReversalRecursive(head) {
+//   if (!head.next) return head;
+//   var next = linkedListReversalRecursive(head.next);
+//   head.next.next = head;
+//   head.next = null;
+//   return next;
+// }
+
 function linkedListReversal(head) {
-  var prev = null;
-  var current = head;
-  var next = current.next;
-  while (current.next) {
-    console.log(current.value);
+  let prev = null;
+  let current = head;
+  let next = head.next;
+
+  while (next) {
     current.next = prev;
     prev = current;
     current = next;
     next = current.next;
   }
+
   current.next = prev;
-  return head;
+  return current;
 }
 
-function linkedListReversalRecursive(head) {
-  if (!head.next) return head;
-  var next = linkedListReversalRecursive(head.next);
-  head.next.next = head;
-  head.next = null;
-  return next;
-}
-
-var ans = linkedListReversalRecursive(nodeA);
+var ans = linkedListReversal(nodeA);
 console.log(ans);
 printNodes(nodeC);
