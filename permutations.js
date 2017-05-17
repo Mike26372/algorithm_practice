@@ -1,11 +1,11 @@
 function createPermutations(str) {
-  let permutations = [];
+  let permutations = new Set();
   let charactersArray = str.split('');
   // create function to recuse and calculate permutations
   let findPermutations = function (available = [], outputStr = '') {
     // base case: no more letters available
     if (available.length === 0) {
-      permutations.push(outputStr);
+      permutations.add(outputStr);
       return;
     }
     // loop through each available letter and add to output string
@@ -18,7 +18,7 @@ function createPermutations(str) {
   // call permutation function before returning
   findPermutations(charactersArray);
   // return results
-  return permutations;
+  return [...permutations];
 }
 
 let test = createPermutations('ABCD');
