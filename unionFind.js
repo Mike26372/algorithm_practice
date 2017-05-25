@@ -6,6 +6,9 @@ class UF {
 
   root (i) {
     while (i !== this.ids[i]) {
+      // 
+      this.ids[i] = this.ids[this.ids[i]];
+      // Moves up one node in tree
       i = this.ids[i];
     }
     return i;
