@@ -12,6 +12,26 @@ var moveZerosToLeft = function(arr) {
   return arr;
 };
 
+var moveZerosToLeftPointers = function(arr) {
+  var read = arr.length - 1;
+  var write = arr.length - 1;
+
+  while (read >= 0) {
+    if (arr[read] !== 0) {
+      arr[write] = arr[read];
+      write--;
+    }
+    read--;
+  }
+
+  while (write >= 0) {
+    arr[write] = 0;
+    write--;
+  }
+
+  return arr;
+};
+
 var nums = [1, 10, 20, 0, 59, 63, 0, 88, 0];
-var ans = moveZerosToLeft(nums);
+var ans = moveZerosToLeftPointers(nums);
 console.log(ans);
