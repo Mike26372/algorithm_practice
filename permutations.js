@@ -21,5 +21,36 @@ function createPermutations(str) {
   return [...permutations];
 }
 
-let test = createPermutations('ABCD');
+function swapPermutations(str) {
+  let chars = str.split('');
+  let permutations = [];
+
+  let findPermutations = function(arr, curr = 0, end = arr.length - 1) {
+    if (curr === end) {
+      permutations.push(arr.slice().join(''));
+    }
+
+    for (var i = curr; i < end + 1; i++) {
+      let swappedArr = swap(arr, curr, i);
+      findPermutations(arr, curr + 1, end);
+    }
+  };
+
+  findPermutations(chars);
+  return permutations;
+
+}
+
+
+
+function swap(arr, a, b) {
+  let temp = arr[a];
+  arr[a] = arr[b];
+  arr[b] = temp;
+}
+
+let test = createPermutations('ABC');
 console.log(test);
+
+let swapTest = swapPermutations('ABC');
+console.log(swapTest);
