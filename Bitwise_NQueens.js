@@ -3,7 +3,7 @@ countNQueensSolutions = function(n) {
   var count = 0;
 
   //Helps identify valid solutions
-  var done = Math.pow(2, n) - 1;
+  var done = (1 << n) - 1;
 
   //Checks all possible board configurations
   var innerRecurse = function(ld, col, rd) {
