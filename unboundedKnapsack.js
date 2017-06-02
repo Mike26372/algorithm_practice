@@ -11,6 +11,7 @@ function getMaxKnapsack(weight, items) {
     });
     solutions[i] = currentMax;
   }
+  // console.log(solutions);
   return solutions[weight];
 }
 
