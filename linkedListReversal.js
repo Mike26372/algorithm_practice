@@ -62,6 +62,18 @@ function linkedListReversal(head) {
   return current;
 }
 
-var ans = linkedListReversal(nodeA);
+function linkedListReversalTemp(head) {
+  var curr = head;
+  var prev = null;
+  while (curr) {
+    var temp = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = temp;
+  }
+  return prev;
+}
+
+var ans = linkedListReversalTemp(nodeA);
 console.log(ans);
 printNodes(nodeC);
