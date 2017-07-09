@@ -72,7 +72,7 @@ class DoublyLinkedList {
     }
 
     if (node === this.tail) {
-      this.tail === this.tail.next;
+      this.tail = this.tail.prev;
     }
 
     this.size--;
