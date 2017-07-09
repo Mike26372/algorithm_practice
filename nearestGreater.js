@@ -17,7 +17,7 @@ function nearestGreater(a) {
     var before = undefined, after = undefined, beforeIndex, afterIndex;
     if (maxBefore[x - 1] && maxBefore[x - 1] > current) {
       beforeIndex = x - 1;
-      while( a[beforeIndex] <= current ) {
+      while ( a[beforeIndex] <= current ) {
         beforeIndex--;
       }
       before = a[beforeIndex];
