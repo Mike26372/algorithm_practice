@@ -1,8 +1,10 @@
 function createPermutations(str) {
   let permutations = new Set();
   let charactersArray = str.split('');
+  let count = 0;
   // create function to recuse and calculate permutations
   let findPermutations = function (available = [], outputStr = '') {
+    count++;
     // base case: no more letters available
     if (available.length === 0) {
       permutations.add(outputStr);
@@ -17,6 +19,8 @@ function createPermutations(str) {
 
   // call permutation function before returning
   findPermutations(charactersArray);
+
+  console.log(count);
   // return results
   return [...permutations];
 }
@@ -24,19 +28,23 @@ function createPermutations(str) {
 function swapPermutations(str) {
   let chars = str.split('');
   let permutations = [];
+  let count = 0;
 
   let findPermutations = function(arr, curr = 0, end = arr.length - 1) {
+    count++;
     if (curr === end) {
       permutations.push(arr.slice().join(''));
     }
 
     for (var i = curr; i < end + 1; i++) {
       let swappedArr = swap(arr, curr, i);
-      findPermutations(arr, curr + 1, end);
+      findPermutations(arr.slice(), curr + 1, end);
     }
   };
 
   findPermutations(chars);
+
+  console.log(count);
   return permutations;
 
 }
