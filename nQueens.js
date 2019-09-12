@@ -28,7 +28,7 @@ function isAvailable(queens, row, col) {
     var queenCol = queens[i];
     var queenRow = i;
     
-    if (queenRow === row) return false;
+    // if (queenRow === row) return false;
     if (queenCol === col) return false;
     if (queenRow + queenCol === rightDiag) return false;
     if (queenRow - queenCol === leftDiag) return false;
@@ -44,3 +44,5 @@ function lexicographicalSort(a, b) {
   }
   return a.length < b.length ? -1 : 1;
 }
+
+console.log(nQueens(5))

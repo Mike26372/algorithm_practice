@@ -49,7 +49,30 @@ function swapPermutations(str) {
 
 }
 
+function swapPermutationsInPlace(str) {
+  let chars = str.split('');
+  let permutations = [];
+  let count = 0;
 
+  let findPermutations = function (arr, curr = 0, end = arr.length - 1) {
+    count++;
+    if (curr === end) {
+      permutations.push(arr.slice().join(''));
+    }
+
+    for (var i = curr; i < end + 1; i++) {
+      swap(arr, curr, i);
+      findPermutations(arr, curr + 1, end);
+      swap(arr, curr, i);
+    }
+  };
+
+  findPermutations(chars);
+
+  console.log(count);
+  return permutations;
+
+}
 
 function swap(arr, a, b) {
   let temp = arr[a];
@@ -57,8 +80,8 @@ function swap(arr, a, b) {
   arr[b] = temp;
 }
 
-let test = createPermutations('ABC');
-console.log(test);
+// let test = createPermutations('ABC');
+// console.log(test);
 
-let swapTest = swapPermutations('ABC');
+let swapTest = swapPermutationsInPlace('ABC');
 console.log(swapTest);

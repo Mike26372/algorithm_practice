@@ -17,4 +17,4 @@ function coinChange(amount, coins) {
 
 
 console.log(coinChange(4, [1, 2, 3]));
-console.log(coinChange(5, [1, 3, 5]));
+console.log(coinChange(50, [1, 5, 10, 25, 50, 100]));

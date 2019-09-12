@@ -18,7 +18,7 @@ function addPeriodicElement(str) {
         changed = true;
         i += el.length - 1;
         break;
-      }
+      } 
     }
     if (!changed) {
       newString += str[i];

@@ -4,7 +4,7 @@ function coinChange (amount, coins) {
 
   for (let coinIndex = 0; coinIndex < coins.length; coinIndex++) {
     let currentCoin = coins[coinIndex];
-    for (let solutionIndex = currentCoin; solutionIndex < solutions.length; solutionIndex++) {
+    for (let solutionIndex = currentCoin; solutionIndex <= solutions.length; solutionIndex++) {
       solutions[solutionIndex] += solutions[solutionIndex - currentCoin]; 
     }
   }
@@ -13,4 +13,4 @@ function coinChange (amount, coins) {
 }
 
 console.log(coinChange(4, [1, 2, 3]));
-console.log(coinChange(7, [1, 2, 5]));
+console.log(coinChange(100, [1, 5, 10, 25, 50, 100]));
