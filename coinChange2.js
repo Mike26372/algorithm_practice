@@ -8,6 +8,7 @@ function coinChange(amount, coins) {
       let remainder = solution - currentCoin;
       solutions[solution] += solutions[remainder];
     }
+    console.log(solutions)
   }
 
   return solutions[solutions.length - 1];

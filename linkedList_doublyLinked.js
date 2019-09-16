@@ -68,7 +68,7 @@ class DoublyLinkedList {
     }
 
     this.size--;
-    this.node;
+    return this.node;
   }
 
   removeHead(node) {
@@ -78,7 +78,6 @@ class DoublyLinkedList {
   removeTail(node) {
     return this.remove(this.tail);
   }
-
 }
 
 function printNodes(startNode, reversed = false) {
@@ -92,7 +91,7 @@ function printNodes(startNode, reversed = false) {
       current = current.prev;
     }
   }
-  console.log(path.join('-->'));
+  console.log(path.join("-->"));
   return path;
 }
 
