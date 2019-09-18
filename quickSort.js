@@ -1,4 +1,4 @@
-var quickSort = function(arr) {
+var quickSortSimple = function(arr) {
   if (arr.length < 2) return arr;
   var pivot = arr.pop();
   var left = [];
@@ -12,44 +12,41 @@ var quickSort = function(arr) {
       right.push(arr[i]);
     }
   }
-  let below = quickSort(left);
-  let above = quickSort(right);
+  let below = quickSortSimple(left);
+  let above = quickSortSimple(right);
   return [...below, pivot, ...above];
 };
 
-var quickSortConstantMem = function (arr, low = 0, high = arr.length - 1) {
-  
-  if (low >= high) return;
-
-  let pivot = arr[low];
-  let leftIndex = low;
-  let rightIndex = high;
-
-  while (leftIndex < rightIndex) {
-    while (arr[leftIndex] <= pivot && leftIndex <= high) {
-      leftIndex++;
-    }
-
-    while (arr[rightIndex] > pivot) {
-      rightIndex--;
-    }
-    // if left is less than right, numbers in need of a pivot have been found
-    if (leftIndex < rightIndex) {
-      let temp = arr[leftIndex];
-      arr[leftIndex] = arr[rightIndex];
-      arr[rightIndex] = temp;
-    } else {
-      break;
-    }
+var quickSort = function(arr, low = 0, high = arr.length - 1) {
+  if (low < high) {
+    let pivot = partition(arr, low, high);
+    quickSort(arr, low, pivot - 1);
+    quickSort(arr, pivot + 1, high);
+    return arr;
   }
-  // swap pivot value with middle value at pivot position
-  arr[low] = arr[rightIndex];
-  arr[rightIndex] = pivot;
-  quickSortConstantMem(arr, low, rightIndex - 1);
-  quickSortConstantMem(arr, rightIndex + 1, high);
-  return arr;
 };
 
+function partition(arr, low, high) {
+  let pivot = arr[high];
+  let pivotIndex = low;
+
+  for (let i = low; i < high; i++) {
+    if (arr[i] < pivot) {
+      swap(arr, i, pivotIndex);
+      pivotIndex++;
+    }
+  }
+
+  swap(arr, high, pivotIndex);
+  return pivotIndex;
+}
+
+function swap(arr, x, y) {
+  let temp = arr[x];
+  arr[x] = arr[y];
+  arr[y] = temp;
+}
+
 var nums = [10, 5, 3, 8, 2, 6, 4, 7, 9, 1];
-var ans = quickSortConstantMem(nums);
+var ans = quickSort(nums);
 console.log(ans);
