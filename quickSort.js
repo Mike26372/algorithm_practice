@@ -20,6 +20,7 @@ var quickSortSimple = function(arr) {
 var quickSort = function(arr, low = 0, high = arr.length - 1) {
   if (low < high) {
     let pivot = partition(arr, low, high);
+    console.log(arr);
     quickSort(arr, low, pivot - 1);
     quickSort(arr, pivot + 1, high);
     return arr;

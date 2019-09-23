@@ -7,14 +7,14 @@ var searchHighLowIndex = function(arr, key) {
 var findLowIndex = function(arr, key) {
   let low = 0;
   let high = arr.length - 1;
-  let mid = Math.floor((high) / 2);
+  let mid = Math.floor(high / 2);
 
-  while ( low <= high ) {
+  while (low <= high) {
     let midVal = arr[mid];
-    if (midVal < key) {
-      low = mid + 1;
-    } else {
+    if (key <= midVal) {
       high = mid - 1;
+    } else {
+      low = mid + 1;
     }
     mid = low + Math.floor((high - low) / 2);
   }
@@ -26,14 +26,14 @@ var findLowIndex = function(arr, key) {
 var findHighIndex = function(arr, key) {
   let low = 0;
   let high = arr.length - 1;
-  let mid = Math.floor((high) / 2);
+  let mid = Math.floor(high / 2);
 
-  while ( low <= high ) {
+  while (low <= high) {
     let midVal = arr[mid];
-    if (midVal <= key) {
-      low = mid + 1;
-    } else {
+    if (key < midVal) {
       high = mid - 1;
+    } else {
+      low = mid + 1;
     }
     mid = low + Math.floor((high - low) / 2);
   }
@@ -42,12 +42,11 @@ var findHighIndex = function(arr, key) {
   return -1;
 };
 
-
 var tests = [
   [[1, 2, 5, 5, 5, 5, 5, 5, 5, 5, 20], 0],
   [[1, 2, 5, 5, 5, 5, 5, 5, 5, 5, 20], 1],
   [[1, 2, 5, 5, 5, 5, 5, 5, 5, 5, 20], 5],
-  [[1, 2, 5, 5, 5, 5, 5, 5, 5, 5, 20], 20],
+  [[1, 2, 5, 5, 5, 5, 5, 5, 5, 5, 20], 20]
 ];
 
 tests.forEach(test => {

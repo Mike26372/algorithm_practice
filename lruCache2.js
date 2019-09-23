@@ -87,8 +87,8 @@ class DoublyLinkedList {
     const result = [];
 
     while (node) {
-      console.log('key:', node.key);
-      console.log('data:', node.data);
+      console.log("key:", node.key);
+      console.log("data:", node.data);
       result.push(`${node.key}: ${node.data}`);
       node = node.next;
     }
@@ -121,7 +121,7 @@ class LRUCache {
       // Overwriting cache value for key and placing at tail as LRU
       this.cacheVals.remove(node);
       const newNode = this.cacheVals.insertAtTail(key, data);
-      this.cache[key] = newNode
+      this.cache[key] = newNode;
     } else {
       this.evictIfNeeded();
       const newNode = this.cacheVals.insertAtTail(key, data);

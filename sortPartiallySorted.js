@@ -11,14 +11,14 @@ function sortPartiallySorted(nums) {
     // If curr 28 sig bits have changed, sort and reset buckets
     if ((curr & mask) !== curr28bits) {
       for (let j = 0; j < buckets.length; j++) {
-        for (let k = 0; k < buckets[j] ; k++) {
+        for (let k = 0; k < buckets[j]; k++) {
           results.push(curr28bits | j);
         }
       }
 
       // Reset buckets for next 28 sig bits set
       buckets = new Array(16).fill(0);
-      curr28bits = curr & mask
+      curr28bits = curr & mask;
     }
 
     buckets[curr & 15] += 1;
@@ -26,7 +26,7 @@ function sortPartiallySorted(nums) {
 
   for (let x = 0; x < buckets.length; x++) {
     for (let y = 0; y < buckets[x]; y++) {
-      results.push(curr28bits | x)
+      results.push(curr28bits | x);
     }
   }
 

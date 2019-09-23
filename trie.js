@@ -1,51 +1,51 @@
 /**
  * Initialize your data structure here.
  */
-var Trie = function () {
-  this.root = {}
+var Trie = function() {
+  this.root = {};
 };
 
 /**
- * Inserts a word into the trie. 
+ * Inserts a word into the trie.
  * @param {string} word
  * @return {void}
  */
-Trie.prototype.insert = function (word) {
+Trie.prototype.insert = function(word) {
   let node = this.root;
   for (let i = 0; i < word.length; i++) {
     let ltr = word[i];
-    node[ltr] = node[ltr] || {}
+    node[ltr] = node[ltr] || {};
     node = node[ltr];
   }
-  node['*'] = true;
+  node["*"] = true;
 };
 
 /**
- * Returns if the word is in the trie. 
+ * Returns if the word is in the trie.
  * @param {string} word
  * @return {boolean}
  */
-Trie.prototype.search = function (word) {
+Trie.prototype.search = function(word) {
   let node = this.root;
   for (let i = 0; i < word.length; i++) {
     node = node[word[i]];
     if (!node) return false;
   }
 
-  if (node['*']) return true;
+  if (node["*"]) return true;
   return false;
 };
 
 /**
- * Returns if there is any word in the trie that starts with the given prefix. 
+ * Returns if there is any word in the trie that starts with the given prefix.
  * @param {string} prefix
  * @return {boolean}
  */
-Trie.prototype.startsWith = function (prefix) {
+Trie.prototype.startsWith = function(prefix) {
   let node = this.root;
   for (let i = 0; i < prefix.length; i++) {
-    node = node[prefix[i]]
-    if (!node) return false
+    node = node[prefix[i]];
+    if (!node) return false;
   }
 
   return true;
